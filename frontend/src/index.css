@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-saas-bg text-saas-text font-sans antialiased selection:bg-saas-indigo/10 transition-colors duration-300;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-saas-text font-sans;
+  }
+
+  /* Support dark class on body/root */
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
+  }
+}
+
+/* Premium SaaS Card layouts */
+.saas-card {
+  @apply bg-white dark:bg-dark-card border border-saas-border dark:border-dark-border shadow-premium rounded-2xl transition-all duration-300;
+}
+
+.saas-card-hover {
+  @apply hover:shadow-premium-lg hover:border-saas-muted/30 dark:hover:border-dark-muted/30;
+}
+
+/* Glassmorphism using soft opacity */
+.saas-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  @apply border border-saas-border/80 dark:bg-dark-card/75 dark:border-dark-border/80;
+}
+
+/* Clean UI Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-saas-slate100 dark:bg-dark-bg;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-saas-slate300 dark:bg-saas-slate800 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-saas-slate700 dark:bg-saas-slate300;
+}
+
+/* Pulse / loading animations */
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.35; }
+}
+.skeleton-loading {
+  animation: skeletonPulse 1.8s ease-in-out infinite;
+  @apply bg-saas-slate200 dark:bg-saas-slate800;
+}
+
+/* Smooth circular spinner */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
+}

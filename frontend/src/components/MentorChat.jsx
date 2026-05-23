@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Send, User, Cpu, Sparkles, X } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react'
+import { Send, User, Cpu, Sparkles, X } from 'lucide-react'
 
 export default function MentorChat({ role, resumeSummary, onClose }) {
   const [messages, setMessages] = useState([
@@ -15,7 +15,7 @@ export default function MentorChat({ role, resumeSummary, onClose }) {
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isTyping]);
+  }, [messages, isTyping])
 
   const handleSendMessage = async (e) => {
     e.preventDefault();

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, File, UploadFile, Form, HTTPException
 from pydantic import BaseModel
-from typing import List, Dict, Any, Optional
 from backend.app.services import AIService
+from typing import List, Dict, Any, Optional
 
 router = APIRouter()
 ai_service = AIService()
@@ -45,9 +45,9 @@ async def upload_resume(file: UploadFile = File(...), role: str = Form(...)):
             
         analysis = ai_service.analyze_resume(text, role)
         return {
-            "status": "success",
             "filename": filename,
-            "analysis": analysis
+            "analysis": analysis,
+            "status": "success"
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
